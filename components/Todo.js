@@ -2,21 +2,17 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
 
-import HomeScreen from './components/HomeScreen';
-//import DetailsScreen from './components/DetailsScreen';
-import AddRoutine from './components/AddRoutine';
-import AddTask from './components/AddTask';
-import UpdateRoutine from './components/UpdateRoutine';
-import UpdateTask from './components/UpdateTask';
-
-SplashScreen.preventAutoHideAsync();
-setTimeout(SplashScreen.hideAsync, 5000);
+import HomeScreen from './HomeScreen';
+//import DetailsScreen from './DetailsScreen';
+import AddRoutine from './AddRoutine';
+import AddTask from './AddTask';
+import UpdateRoutine from './UpdateRoutine';
+import UpdateTask from './UpdateTask';
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function Todo() {
   return (
     <NavigationContainer>
       <StatusBar
