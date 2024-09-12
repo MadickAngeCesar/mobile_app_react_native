@@ -32,18 +32,30 @@ export default function Form({ section, type, save, initialData }) {
     }
 
     try {
-      // Determine if we are adding or updating
-      if (initialData) {
-        // Update operation
-        await save(title, start_time, end_time, description, order); // Update
-      } else {
-        // Add operation
-        await save(title, start_time, end_time, description, order); // Add
+      // Determine if we are manipulating, routine or task
+      if(type === 'routine'){
+        // Determine if we are adding or updating
+        if (initialData) {
+          // Update operation
+          await save(title, start_time, end_time, description); // Update
+        } else {
+          // Add operation
+          await save(title, start_time, end_time, description); // Add
+        }
+      }else{
+        // Determine if we are adding or updating
+        if (initialData) {
+          // Update operation
+          await save(title, order, description); // Update
+        } else {
+          // Add operation
+          await save(title, order, description); // Add
+        }
       }
-      Alert.alert('Success', `Routine ${initialData ? 'updated' : 'added'} successfully!`);
+      Alert.alert('Success', `${initialData ? 'updated' : 'added'} successfully!`);
     } catch (error) {
       console.error('Error saving data:', error);
-      Alert.alert('Error', `Failed to ${initialData ? 'update' : 'add'} routine`);
+      Alert.alert('Error', `Failed to ${initialData ? 'update' : 'add'}!`);
     }
   };
 

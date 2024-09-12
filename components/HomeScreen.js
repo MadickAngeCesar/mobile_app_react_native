@@ -79,7 +79,7 @@ export default function HomeScreen({ navigation }) {
                         key={task.id}
                         id={task.id}
                         title={task.title}
-                        order={task.order}
+                        order={task.priority}
                         description={task.description}
                         edit={() => navigation.navigate('UpdateTask', { itemId: task.id })}
                         onDelete={() => deleteItem('task', task.id)}
